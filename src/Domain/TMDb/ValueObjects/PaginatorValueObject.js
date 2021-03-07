@@ -23,7 +23,7 @@ export class PaginatorValueObject {
   }
 
   nextPageNumber() {
-    if (this._currentPageNumber === this._totalPages) return;
+    if (this._currentPageNumber >= this._totalPages) return;
 
     return this._currentPageNumber + 1;
   }
