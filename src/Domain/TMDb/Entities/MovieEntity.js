@@ -6,7 +6,16 @@ export class MovieEntity {
   }
 
   constructor({ movie }) {
-    const { id, title, poster_path, vote_average, release_date, overview } = movie;
+    const {
+      id,
+      title,
+      poster_path,
+      vote_average,
+      release_date,
+      overview,
+      tagline,
+      runtime,
+    } = movie;
 
     this._id = id;
     this._title = title;
@@ -14,6 +23,8 @@ export class MovieEntity {
     this._voteAverage = vote_average;
     this._releaseDate = release_date;
     this._overview = overview;
+    this._tagline = tagline;
+    this._runtime = runtime;
   }
 
   id() {
@@ -32,6 +43,18 @@ export class MovieEntity {
     return this._releaseDate;
   }
 
+  overview() {
+    return this._overview;
+  }
+
+  tagline() {
+    return this._tagline;
+  }
+
+  runtime() {
+    return this._runtime;
+  }
+
   poster() {
     const posterVO = PosterValueObject.create({
       posterPath: this._posterPath,
@@ -48,6 +71,9 @@ export class MovieEntity {
       title: this.title(),
       voteAverage: this.voteAverage(),
       releaseDate: this.releaseDate(),
+      overview: this.overview(),
+      tagline: this.tagline(),
+      runtime: this.runtime(),
       poster: this.poster(),
     };
   }

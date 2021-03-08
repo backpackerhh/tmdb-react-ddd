@@ -1,17 +1,16 @@
 import React, { useEffect, useState, useRef } from "react";
-import { useLocation } from "react-router-dom";
 
 import { Domain } from "../Domain";
 import { MovieList } from "./MovieList";
 import { Paginator } from "./Paginator";
+import { useQuery } from "../hooks/useQuery";
 import { scrollToRef } from "../utils/scrollToRef";
 
 export const Home = () => {
   const [movies, setMovies] = useState([]);
   const [paginationData, setPaginationData] = useState({});
   const headerRef = useRef(null);
-  const query = new URLSearchParams(useLocation().search);
-  const page = query.get("page") || 1;
+  const page = useQuery("page", 1);
 
   useEffect(() => {
     Domain.get("top_rated_movies")
