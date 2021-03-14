@@ -1,12 +1,12 @@
 import React from "react";
-import { Link, useLocation } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 export const GoBack = () => {
-  const location = useLocation();
+  const history = useHistory();
 
   return (
     <p>
-      <Link to={location.state.from}>Go Back</Link>
+      <button onClick={() => history.goBack()}>Go Back</button>
     </p>
   );
 };

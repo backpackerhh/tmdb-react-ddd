@@ -18,7 +18,7 @@ export const MovieDetail = () => {
   }, [movieId]);
 
   if (!movie) {
-    return "Loading...";
+    return "Loading movie...";
   }
 
   const { title, voteAverage, releaseDate, overview, tagline, runtime, poster } = movie;

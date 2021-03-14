@@ -12,14 +12,34 @@ export class HttpRepository {
     return new HttpRepository();
   }
 
-  async getTopRatedMovies({ pageNumberVO }) {
+  getTopRatedMovies({ pageNumberVO }) {
     const url = `${TMDB_API_URL}movie/top_rated`;
-    const params = { api_key: TMDB_API_KEY, page: pageNumberVO.value() };
+    const params = { page: pageNumberVO.value() };
+
+    return this._fetchMovies({ url, params });
+  }
+
+  async getMovie({ movieIdVO }) {
+    const url = `${TMDB_API_URL}movie/${movieIdVO.value()}`;
+    const defaultParams = this._defaultParams();
+
+    try {
+      const response = await axios.get(url, { params: { ...defaultParams } });
+      const movieEntity = MovieEntity.create({ movie: response.data });
+
+      return movieEntity;
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
+  async _fetchMovies({ url, params }) {
+    const defaultParams = this._defaultParams();
     const movieMapper = MovieMapper.create();
     const pageMapper = PageMapper.create({ movieMapper });
 
     try {
-      const response = await axios.get(url, { params });
+      const response = await axios.get(url, { params: { ...defaultParams, ...params } });
       const pageVO = pageMapper.map(response.data);
 
       return pageVO;
@@ -28,17 +48,7 @@ export class HttpRepository {
     }
   }
 
-  async getMovie({ movieIdVO }) {
-    const url = `${TMDB_API_URL}movie/${movieIdVO.value()}`;
-    const params = { api_key: TMDB_API_KEY };
-
-    try {
-      const response = await axios.get(url, { params });
-      const movieEntity = MovieEntity.create({ movie: response.data });
-
-      return movieEntity;
-    } catch (e) {
-      console.log(e);
-    }
+  _defaultParams() {
+    return { api_key: TMDB_API_KEY };
   }
 }
