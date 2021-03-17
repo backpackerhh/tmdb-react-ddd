@@ -19,6 +19,13 @@ export class HttpRepository {
     return this._fetchMovies({ url, params });
   }
 
+  getMoviesByTerm({ termVO, pageNumberVO }) {
+    const url = `${TMDB_API_URL}search/movie`;
+    const params = { query: termVO.value(), page: pageNumberVO.value() };
+
+    return this._fetchMovies({ url, params });
+  }
+
   async getMovie({ movieIdVO }) {
     const url = `${TMDB_API_URL}movie/${movieIdVO.value()}`;
     const defaultParams = this._defaultParams();

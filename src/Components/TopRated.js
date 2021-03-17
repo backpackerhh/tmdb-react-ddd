@@ -10,11 +10,11 @@ export const TopRated = () => {
   const [movies, setMovies] = useState([]);
   const [paginationData, setPaginationData] = useState({});
   const headerRef = useRef(null);
-  const page = useQuery("page", 1);
+  const pageNumber = useQuery("page", 1);
 
   useEffect(() => {
     Domain.get("top_rated_movies")
-      .execute({ pageNumber: page })
+      .execute({ pageNumber })
       .then((data) => {
         setMovies(data.movies);
         setPaginationData(data.paginationData);
@@ -22,7 +22,7 @@ export const TopRated = () => {
         scrollToRef(headerRef);
       })
       .catch((e) => console.log(e));
-  }, [page]);
+  }, [pageNumber]);
 
   if (!movies) {
     return "Loading top rated movies...";
@@ -33,7 +33,9 @@ export const TopRated = () => {
       <h2 ref={headerRef}>Top Rated Movies</h2>
 
       <Paginator paginationData={paginationData} />
+
       <MovieList movies={movies} pageNumber={paginationData.currentPageNumber} />
+
       <Paginator paginationData={paginationData} />
     </>
   );
