@@ -1,9 +1,10 @@
 import React, { useEffect, useState, useRef } from "react";
 
 import { Domain } from "../Domain";
-import { Paginator } from "./Paginator";
-import { MovieList } from "./MovieList";
+import { Header } from "./Header";
 import { SearchBox } from "./SearchBox";
+import { MovieList } from "./MovieList";
+import { Paginator } from "./Paginator";
 import { useQuery } from "../hooks/useQuery";
 import { scrollToRef } from "../utils/scrollToRef";
 
@@ -32,6 +33,8 @@ export const Search = () => {
 
   return (
     <>
+      <Header />
+
       <SearchBox />
 
       <h2 ref={headerRef}>Results for term: {term}</h2>

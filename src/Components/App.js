@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import { Home } from "./Home";
 import { Search } from "./Search";
@@ -9,10 +9,6 @@ import { MovieDetail } from "./MovieDetail";
 const App = () => {
   return (
     <Router>
-      <h1>
-        <Link to="/">TMDb</Link>
-      </h1>
-
       <Switch>
         <Route path="/" exact component={Home} />
         <Route path="/movies/search" exact component={Search} />

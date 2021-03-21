@@ -1,8 +1,9 @@
 import React, { useEffect, useState, useRef } from "react";
 
 import { Domain } from "../Domain";
-import { Paginator } from "./Paginator";
+import { Header } from "./Header";
 import { MovieList } from "./MovieList";
+import { Paginator } from "./Paginator";
 import { useQuery } from "../hooks/useQuery";
 import { scrollToRef } from "../utils/scrollToRef";
 
@@ -30,6 +31,8 @@ export const TopRated = () => {
 
   return (
     <>
+      <Header />
+
       <h2 ref={headerRef}>Top Rated Movies</h2>
 
       <Paginator paginationData={paginationData} />

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 import { Domain } from "../Domain";
+import { Header } from "./Header";
 import { GoBack } from "./GoBack";
 
 export const MovieDetail = () => {
@@ -26,6 +27,8 @@ export const MovieDetail = () => {
 
   return (
     <>
+      <Header />
+
       <GoBack />
 
       <div>
