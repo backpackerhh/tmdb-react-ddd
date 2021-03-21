@@ -1,12 +1,12 @@
 import React from "react";
 
 import { Movie } from "./Movie";
-import { generatePosition } from "../utils/generatePosition";
+import { generateRankWithinPaginatedList } from "../utils/generateRankWithinPaginatedList";
 
 export const MovieList = ({ movies, pageNumber }) => {
   return movies.map((movie, idx) => {
-    const position = generatePosition(pageNumber, idx + 1);
+    const rank = generateRankWithinPaginatedList(pageNumber, idx + 1);
 
-    return <Movie key={movie.id} movie={movie} position={position} />;
+    return <Movie key={movie.id} movie={movie} rank={rank} />;
   });
 };
