@@ -1,6 +1,6 @@
 import { config } from "../../config";
 
-const { TMDB_API_POSTER_URL, MOVIE_POSTER_HEIGHT } = config;
+const { TMDB_API_POSTER_URL } = config;
 
 export class PosterValueObject {
   static create({ posterPath, movieTitle, movieOverview }) {
@@ -17,10 +17,6 @@ export class PosterValueObject {
     return `${TMDB_API_POSTER_URL}${this._posterPath}`;
   }
 
-  height() {
-    return MOVIE_POSTER_HEIGHT;
-  }
-
   alt() {
     return `${this._movieTitle} poster`;
   }
@@ -32,7 +28,6 @@ export class PosterValueObject {
   toJSON() {
     return {
       url: this.url(),
-      height: this.height(),
       alt: this.alt(),
       title: this.title(),
     };

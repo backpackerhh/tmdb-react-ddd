@@ -3,14 +3,14 @@ import { Link } from "react-router-dom";
 
 export const Movie = ({ movie, rank }) => {
   const { id, title, voteAverage, releaseDate, poster } = movie;
-  const { url, alt, height, title: posterTitle } = poster;
+  const { url, alt, title: posterTitle } = poster;
 
   return (
     <div>
       <strong>#{rank}</strong>
 
       <Link to={`/movies/${id}`}>
-        <img src={url} alt={alt} height={height} title={posterTitle} />
+        <img src={url} alt={alt} title={posterTitle} />
 
         <div>
           <h3>{title}</h3>
