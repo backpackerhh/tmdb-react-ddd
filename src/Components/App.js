@@ -5,6 +5,7 @@ import { Home } from "./Home";
 import { Search } from "./Search";
 import { TopRated } from "./TopRated";
 import { MovieDetail } from "./MovieDetail";
+import "../styles/App.css";
 
 const App = () => {
   return (

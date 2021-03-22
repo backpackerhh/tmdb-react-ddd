@@ -15,16 +15,17 @@ export const SearchBox = () => {
   };
 
   return (
-    <div>
+    <div className="search-box-container">
       <input
-        type="text"
-        placeholder="Search..."
+        type="search"
+        placeholder="Search for movies..."
         onChange={(e) => setTerm(e.target.value)}
         onKeyDown={performSearch}
         ref={searchFieldRef}
       />
+
       <button disabled={!term} onClick={performSearch}>
-        Search
+        <img src="/search.svg" alt="Search" />
       </button>
     </div>
   );
