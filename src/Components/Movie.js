@@ -7,7 +7,7 @@ export const Movie = ({ movie, rank }) => {
 
   return (
     <div>
-      <strong>#{rank}</strong>
+      {rank && <strong>#{rank}</strong>}
 
       <Link to={`/movies/${id}`}>
         <img src={url} alt={alt} title={posterTitle} />

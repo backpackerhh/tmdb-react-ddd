@@ -3,7 +3,7 @@ import React, { useEffect, useState, useRef } from "react";
 import { Domain } from "../Domain";
 import { Header } from "./Header";
 import { SearchBox } from "./SearchBox";
-import { MovieList } from "./MovieList";
+import { SearchMovieList } from "./SearchMovieList";
 import { Paginator } from "./Paginator";
 import { useQuery } from "../hooks/useQuery";
 import { scrollToRef } from "../utils/scrollToRef";
@@ -41,7 +41,7 @@ export const Search = () => {
 
       <Paginator paginationData={paginationData} />
 
-      <MovieList movies={movies} pageNumber={paginationData.currentPageNumber} />
+      <SearchMovieList movies={movies} />
 
       <Paginator paginationData={paginationData} />
     </>
