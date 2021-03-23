@@ -1,0 +1,38 @@
+.paginator {
+  margin: 25px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+  min-width: 400px;
+}
+
+.paginator .paginator-item {
+  font-size: 12px;
+  width: 100%;
+}
+
+.paginator .first-page {
+  text-align: right;
+  margin-right: 1px;
+}
+
+.paginator .previous-page {
+  text-align: center;
+}
+
+.paginator .current-page {
+  font-size: 14px;
+  border: 1px solid black;
+  text-align: center;
+}
+
+.paginator .next-page {
+  text-align: left;
+  margin-left: 14px;
+}
+
+.paginator .last-page {
+  text-align: left;
+  margin-left: -34px;
+}
