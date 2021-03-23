@@ -2,7 +2,6 @@ import React, { useEffect, useState, useRef } from "react";
 
 import { Domain } from "../Domain";
 import { Header } from "./Header";
-import { SearchBox } from "./SearchBox";
 import { SearchMovieList } from "./SearchMovieList";
 import { Paginator } from "./Paginator";
 import { useQuery } from "../hooks/useQuery";
@@ -34,8 +33,6 @@ export const Search = () => {
   return (
     <>
       <Header />
-
-      <SearchBox />
 
       <h2 ref={headerRef}>Results for term: {term}</h2>
 
