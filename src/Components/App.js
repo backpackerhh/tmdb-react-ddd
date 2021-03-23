@@ -9,14 +9,16 @@ import "../styles/App.css";
 
 const App = () => {
   return (
-    <Router>
-      <Switch>
-        <Route path="/" exact component={Home} />
-        <Route path="/movies/search" exact component={Search} />
-        <Route path="/movies/top_rated" exact component={TopRated} />
-        <Route path="/movies/:movieId" exact component={MovieDetail} />
-      </Switch>
-    </Router>
+    <div className="container">
+      <Router>
+        <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/movies/search" exact component={Search} />
+          <Route path="/movies/top_rated" exact component={TopRated} />
+          <Route path="/movies/:movieId" exact component={MovieDetail} />
+        </Switch>
+      </Router>
+    </div>
   );
 };
 

@@ -32,15 +32,19 @@ export const Search = () => {
 
   return (
     <>
-      <Header />
+      <div ref={headerRef}>
+        <Header />
+      </div>
 
-      <h2 ref={headerRef}>Results for term: {term}</h2>
+      <div className="content">
+        <h2>Results for term: {term}</h2>
 
-      <Paginator paginationData={paginationData} />
+        <Paginator paginationData={paginationData} />
 
-      <SearchMovieList movies={movies} />
+        <SearchMovieList movies={movies} />
 
-      <Paginator paginationData={paginationData} />
+        <Paginator paginationData={paginationData} />
+      </div>
     </>
   );
 };

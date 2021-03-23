@@ -25,3 +25,17 @@ a:hover {
 button {
   cursor: pointer;
 }
+
+h2 {
+  border-bottom: 1px solid black;
+}
+
+.container {
+  min-width: 550px;
+}
+
+.container .content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 16px;
+}

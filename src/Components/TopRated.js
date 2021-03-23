@@ -31,15 +31,19 @@ export const TopRated = () => {
 
   return (
     <>
-      <Header />
+      <div ref={headerRef}>
+        <Header />
+      </div>
 
-      <h2 ref={headerRef}>Top Rated Movies</h2>
+      <div className="content">
+        <h2>Top Rated Movies</h2>
 
-      <Paginator paginationData={paginationData} />
+        <Paginator paginationData={paginationData} />
 
-      <MovieList movies={movies} pageNumber={paginationData.currentPageNumber} />
+        <MovieList movies={movies} pageNumber={paginationData.currentPageNumber} />
 
-      <Paginator paginationData={paginationData} />
+        <Paginator paginationData={paginationData} />
+      </div>
     </>
   );
 };

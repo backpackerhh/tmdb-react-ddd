@@ -29,20 +29,22 @@ export const MovieDetail = () => {
     <>
       <Header />
 
-      <GoBack />
-
-      <div>
-        <img src={url} alt={alt} title={posterTitle} />
+      <div className="content">
+        <GoBack />
 
         <div>
-          <h2>{title}</h2>
-          <p>
-            <strong>{tagline}</strong>
-          </p>
-          <p>{overview}</p>
-          <h4>{releaseDate}</h4>
-          <h5>{runtime} min.</h5>
-          <h3>{voteAverage}</h3>
+          <img src={url} alt={alt} title={posterTitle} />
+
+          <div>
+            <h2>{title}</h2>
+            <p>
+              <strong>{tagline}</strong>
+            </p>
+            <p>{overview}</p>
+            <h4>{releaseDate}</h4>
+            <h5>{runtime} min.</h5>
+            <h3>{voteAverage}</h3>
+          </div>
         </div>
       </div>
     </>
