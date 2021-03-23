@@ -4,7 +4,9 @@ import { Link } from "react-router-dom";
 import { addQueryParamToCurrentPath } from "../utils/addQueryParamToCurrentPath";
 
 export const Paginator = ({ paginationData }) => {
-  const { previousPageNumber, currentPageNumber, nextPageNumber } = paginationData;
+  const { previousPageNumber, currentPageNumber, nextPageNumber, totalPages } = paginationData;
+
+  if (totalPages === 0 || currentPageNumber > totalPages) return null;
 
   return (
     <p>
