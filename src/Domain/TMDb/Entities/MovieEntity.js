@@ -43,6 +43,12 @@ export class MovieEntity {
     return this._releaseDate;
   }
 
+  releaseYear() {
+    const year = new Date(this._releaseDate).getFullYear();
+
+    return isNaN(year) ? "-" : year;
+  }
+
   overview() {
     return this._overview;
   }
@@ -59,7 +65,6 @@ export class MovieEntity {
     const posterVO = PosterValueObject.create({
       posterPath: this._posterPath,
       movieTitle: this._title,
-      movieOverview: this._overview,
     });
 
     return posterVO.toJSON();
@@ -71,6 +76,7 @@ export class MovieEntity {
       title: this.title(),
       voteAverage: this.voteAverage(),
       releaseDate: this.releaseDate(),
+      releaseYear: this.releaseYear(),
       overview: this.overview(),
       tagline: this.tagline(),
       runtime: this.runtime(),
