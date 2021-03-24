@@ -13,7 +13,11 @@ export class PosterValueObject {
   }
 
   url() {
-    return `${TMDB_API_POSTER_URL}${this._posterPath}`;
+    if (this._posterPath) {
+      return `${TMDB_API_POSTER_URL}${this._posterPath}`;
+    } else {
+      return "/not-found.png";
+    }
   }
 
   alt() {
