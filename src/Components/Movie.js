@@ -2,15 +2,15 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 export const Movie = ({ movie, rank }) => {
-  const { id, voteAverage, title, releaseYear, poster } = movie;
-  const { url, alt } = poster;
+  const { id, title, voteAverage, releaseYear, poster } = movie;
+  const { listUrl, alt } = poster;
 
   return (
     <div className="movie-card">
       {rank && <strong className="movie-rank">#{rank}</strong>}
 
       <Link to={`/movies/${id}`}>
-        <img src={url} alt={alt} />
+        <img src={listUrl} alt={alt} />
       </Link>
 
       <div className="movie-info">

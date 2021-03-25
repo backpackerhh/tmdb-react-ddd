@@ -12,12 +12,12 @@ export class PosterValueObject {
     this._movieTitle = movieTitle;
   }
 
-  url() {
-    if (this._posterPath) {
-      return `${TMDB_API_POSTER_URL}${this._posterPath}`;
-    } else {
-      return "/not-found.png";
-    }
+  listUrl() {
+    return this._getPosterPath(200);
+  }
+
+  detailUrl() {
+    return this._getPosterPath(300);
   }
 
   alt() {
@@ -26,8 +26,17 @@ export class PosterValueObject {
 
   toJSON() {
     return {
-      url: this.url(),
+      listUrl: this.listUrl(),
+      detailUrl: this.detailUrl(),
       alt: this.alt(),
     };
+  }
+
+  _getPosterPath(width) {
+    if (this._posterPath) {
+      return `${TMDB_API_POSTER_URL}w${width}${this._posterPath}`;
+    } else {
+      return "/not-found.png";
+    }
   }
 }

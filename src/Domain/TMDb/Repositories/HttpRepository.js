@@ -21,7 +21,10 @@ export class HttpRepository {
 
   getMoviesByTerm({ termVO, pageNumberVO }) {
     const url = `${TMDB_API_URL}search/movie`;
-    const params = { query: termVO.value(), page: pageNumberVO.value() };
+    const params = {
+      query: termVO.value(),
+      page: pageNumberVO.value(),
+    };
 
     return this._fetchMovies({ url, params });
   }
@@ -29,9 +32,10 @@ export class HttpRepository {
   async getMovie({ movieIdVO }) {
     const url = `${TMDB_API_URL}movie/${movieIdVO.value()}`;
     const defaultParams = this._defaultParams();
+    const params = { append_to_response: "credits" };
 
     try {
-      const response = await axios.get(url, { params: { ...defaultParams } });
+      const response = await axios.get(url, { params: { ...defaultParams, ...params } });
       const movieEntity = MovieEntity.create({ movie: response.data });
 
       return movieEntity;
