@@ -12,6 +12,12 @@ export class PaginatorValueObject {
     return this._totalPages;
   }
 
+  firstPageNumber() {
+    if (this._currentPageNumber === 1) return;
+
+    return 1;
+  }
+
   previousPageNumber() {
     if (this._currentPageNumber === 1) return;
 
@@ -28,12 +34,20 @@ export class PaginatorValueObject {
     return this._currentPageNumber + 1;
   }
 
+  lastPageNumber() {
+    if (this._currentPageNumber === this._totalPages) return;
+
+    return this._totalPages;
+  }
+
   toJSON() {
     return {
       totalPages: this.totalPages(),
+      firstPageNumber: this.firstPageNumber(),
       previousPageNumber: this.previousPageNumber(),
       currentPageNumber: this.currentPageNumber(),
       nextPageNumber: this.nextPageNumber(),
+      lastPageNumber: this.lastPageNumber(),
     };
   }
 }

@@ -5,15 +5,24 @@ import { addQueryParamToCurrentPath } from "../utils/addQueryParamToCurrentPath"
 import "../styles/Paginator.css";
 
 export const Paginator = ({ paginationData }) => {
-  const { previousPageNumber, currentPageNumber, nextPageNumber, totalPages } = paginationData;
+  const {
+    firstPageNumber,
+    previousPageNumber,
+    currentPageNumber,
+    nextPageNumber,
+    lastPageNumber,
+    totalPages,
+  } = paginationData;
 
   if (totalPages === 0 || currentPageNumber > totalPages) return null;
 
   return (
     <div className="paginator">
       <div className="paginator-item first-page">
-        {previousPageNumber && previousPageNumber !== 1 && (
-          <Link to={(location) => addQueryParamToCurrentPath(location, "page", 1)}>« First</Link>
+        {firstPageNumber && (
+          <Link to={(location) => addQueryParamToCurrentPath(location, "page", firstPageNumber)}>
+            « First
+          </Link>
         )}
       </div>
 
@@ -38,8 +47,8 @@ export const Paginator = ({ paginationData }) => {
       </div>
 
       <div className="paginator-item last-page">
-        {nextPageNumber && nextPageNumber !== totalPages && (
-          <Link to={(location) => addQueryParamToCurrentPath(location, "page", totalPages)}>
+        {lastPageNumber && (
+          <Link to={(location) => addQueryParamToCurrentPath(location, "page", lastPageNumber)}>
             Last »
           </Link>
         )}
