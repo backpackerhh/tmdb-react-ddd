@@ -4,3 +4,7 @@
   padding: 0 !important;
   text-decoration: underline;
 }
+
+.go-back button:hover {
+  text-decoration: none;
+}
