@@ -13,11 +13,11 @@ export class PosterValueObject {
   }
 
   listUrl() {
-    return this._getPosterPath(200);
+    return this._getPosterUrl({ width: 200 });
   }
 
   detailUrl() {
-    return this._getPosterPath(300);
+    return this._getPosterUrl({ width: 300 });
   }
 
   alt() {
@@ -32,7 +32,7 @@ export class PosterValueObject {
     };
   }
 
-  _getPosterPath(width) {
+  _getPosterUrl({ width }) {
     if (this._posterPath) {
       return `${TMDB_API_POSTER_URL}w${width}${this._posterPath}`;
     } else {
