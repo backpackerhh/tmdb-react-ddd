@@ -36,3 +36,19 @@
   text-align: left;
   margin-left: -34px;
 }
+
+.paginator a {
+  text-decoration: underline;
+  color: black;
+}
+
+.paginator a.disabled-link {
+  text-decoration: none;
+  pointer-events: none;
+  color: #666;
+}
+
+.paginator a:hover {
+  text-decoration: none;
+  color: black;
+}

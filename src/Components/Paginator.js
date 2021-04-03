@@ -19,19 +19,21 @@ export const Paginator = ({ paginationData }) => {
   return (
     <div className="paginator">
       <div className="paginator-item first-page">
-        {firstPageNumber && (
-          <Link to={(location) => addQueryParamToCurrentPath(location, "page", firstPageNumber)}>
-            « First
-          </Link>
-        )}
+        <Link
+          to={(location) => addQueryParamToCurrentPath(location, "page", firstPageNumber)}
+          className={firstPageNumber ? "" : "disabled-link"}
+        >
+          « First
+        </Link>
       </div>
 
       <div className="paginator-item previous-page">
-        {previousPageNumber && (
-          <Link to={(location) => addQueryParamToCurrentPath(location, "page", previousPageNumber)}>
-            « Previous
-          </Link>
-        )}
+        <Link
+          to={(location) => addQueryParamToCurrentPath(location, "page", previousPageNumber)}
+          className={previousPageNumber ? "" : "disabled-link"}
+        >
+          « Previous
+        </Link>
       </div>
 
       <div className="paginator-item current-page">
@@ -39,19 +41,21 @@ export const Paginator = ({ paginationData }) => {
       </div>
 
       <div className="paginator-item next-page">
-        {nextPageNumber && (
-          <Link to={(location) => addQueryParamToCurrentPath(location, "page", nextPageNumber)}>
-            Next »
-          </Link>
-        )}
+        <Link
+          to={(location) => addQueryParamToCurrentPath(location, "page", nextPageNumber)}
+          className={nextPageNumber ? "" : "disabled-link"}
+        >
+          Next »
+        </Link>
       </div>
 
       <div className="paginator-item last-page">
-        {lastPageNumber && (
-          <Link to={(location) => addQueryParamToCurrentPath(location, "page", lastPageNumber)}>
-            Last »
-          </Link>
-        )}
+        <Link
+          to={(location) => addQueryParamToCurrentPath(location, "page", lastPageNumber)}
+          className={lastPageNumber ? "" : "disabled-link"}
+        >
+          Last »
+        </Link>
       </div>
     </div>
   );
